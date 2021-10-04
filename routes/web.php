@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/teste/{nome}', function ($nome){
+    return "<h1> Ola : ".$nome."</h1>";
+});
+
+Route::get('/soma/{n1}/{n2}', function ($n1,$n2){
+    return "<h1> a soma e: ".$n1+$n2." !</h1>";
+});
