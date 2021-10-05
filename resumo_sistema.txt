@@ -2,17 +2,18 @@ Filmes
 	id
 	titulo
 	sinopse
-	ana
+	ano
 	pais
 	genero
 	diretor
 	trailer
-	idioma
 	capa
 
 Genero
 	id
 	descricao
+	sigla
+	idioma
 
 Diretor
 	id
