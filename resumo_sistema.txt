@@ -7,6 +7,7 @@ Filmes
 	genero
 	diretor
 	trailer
+	duracao
 	capa
 
 Genero
