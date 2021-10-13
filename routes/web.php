@@ -25,5 +25,11 @@ Route::get('/soma/{n1}/{n2}', function ($n1,$n2){
     return "<h1> a soma e: ".$n1+$n2." !</h1>";
 });
 
+Route::get('layout',function (){
+    return view('admin.layout');
+});
+
 //Route::get('genres', [\App\Http\Controllers\GenreController::class, 'index']);
+Route::prefix('admin')->group(function (){
 Route::resource('genres', \App\Http\Controllers\GenreController::class);
+});

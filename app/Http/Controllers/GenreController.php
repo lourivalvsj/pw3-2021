@@ -15,7 +15,8 @@ class GenreController extends Controller
     public function index()
     {
         $genres = Genre::all();
-        return json_encode($genres);
+        //return json_encode($genres);
+        return view('admin.genres.index', compact('genres'));
     }
 
     /**
@@ -25,7 +26,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.genres.create');
     }
 
     /**
@@ -36,7 +37,8 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Genre::create($request->all());
+        return redirect()->route('genres.index');
     }
 
     /**
