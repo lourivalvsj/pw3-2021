@@ -33,3 +33,11 @@ Route::get('layout',function (){
 Route::prefix('admin')->group(function (){
 Route::resource('genres', \App\Http\Controllers\GenreController::class);
 });
+
+Route::prefix('admin')->group(function (){
+    Route::resource('directors', \App\Http\Controllers\DirectorController::class);
+});
+
+Route::prefix('admin')->group(function (){
+    Route::resource('laguagem', \App\Http\Controllers\LanguageController::class);
+});

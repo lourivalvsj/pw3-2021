@@ -14,7 +14,8 @@ class DirectorController extends Controller
      */
     public function index()
     {
-        //
+        $directors = Director::all();
+        return view('admin.directors.index', compact('directors'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DirectorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.directors.create');
     }
 
     /**
@@ -35,7 +36,8 @@ class DirectorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Director::create($request->all());
+        return redirect()->route('directors.index');
     }
 
     /**
