@@ -14,7 +14,9 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        //
+        $languages = Language::all();
+        //return json_encode($genres);
+        return view('admin.languages.index', compact('languages'));
     }
 
     /**
@@ -24,7 +26,7 @@ class LanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.languages.create');
     }
 
     /**
@@ -35,7 +37,8 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Language::create($request->all());
+        return redirect()->route('languages.index');
     }
 
     /**

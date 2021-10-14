@@ -39,5 +39,5 @@ Route::prefix('admin')->group(function (){
 });
 
 Route::prefix('admin')->group(function (){
-    Route::resource('laguagem', \App\Http\Controllers\LanguageController::class);
+    Route::resource('languages', \App\Http\Controllers\LanguageController::class);
 });
