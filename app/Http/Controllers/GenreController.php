@@ -49,8 +49,10 @@ class GenreController extends Controller
      */
     public function show($id)
     {
-        $genre = Genre::findOrFail($id);
-        return json_encode($genre);
+        //$genre = Genre::findOrFail($id);
+        //return json_encode($genre);
+        return abort(404);
+
     }
 
     /**
@@ -59,9 +61,11 @@ class GenreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Genre $genre)
     {
-        //
+        //$genre = Genre::findOrFail($id);
+        return view('admin.genres.edit',compact('genre'));
+        //return view('admin.genres.edit', compact('genre'));
     }
 
     /**
@@ -71,9 +75,19 @@ class GenreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Genre $genre)
     {
-        //
+        //Genre::findOrFail($id)->update($request->all());
+        $genre->update($request->all());
+
+        /*$genre = Genre::findOrFail($id);
+        $genre->description = $request->input('description');
+        $genre->save();
+        */
+        return redirect()->route('genres.index');
+
+        //$genre->update($request->all());
+        //return redirect()->route('genres.index');
     }
 
     /**
@@ -82,8 +96,10 @@ class GenreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Genre $genre)
     {
-        //
+        //Genre::findOrFail($id)->delete();
+        $genre->delete();
+        return redirect()->route('genres.index');
     }
 }

@@ -53,15 +53,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
+                    {{--<li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>*/--}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('genres.index')}}">Generos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{{route('directors.index')}}">Diretores</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{route('languages.index')}}">Idiomas</a>
+                    </li>
+                    {{--<li class="nav-item">
                         <a class="nav-link disabled">Disabled</a>
-                    </li>
+                    </li>--}}
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -76,6 +82,7 @@
 <main class="flex-shrink-0">
     <div class="container">
         <h1>@yield('page-title')</h1>
+        <h1>@yield('page-title')</h1>
         @yield('content')
     </div>
 </main>
@@ -88,7 +95,6 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-
 
 </body>
 </html>
