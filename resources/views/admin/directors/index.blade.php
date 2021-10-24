@@ -18,8 +18,13 @@
             <tr>
                 <td class="main-col">{{$director->name}}</td>
                 <td>
-                    <a href="" class="btn btn-primary">Editar</a>
-                    <a href="" class="btn btn-danger">Excluir</a>
+                    <a href="{{route('directors.edit', $director->id)}}" class="btn btn-primary">Editar</a>
+                    <form method="post" action="{{route('directors.destroy', $director)}}" style="display: inline">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Excluir</button>
+                    </form>
+
                 </td>
             </tr>
         @endforeach

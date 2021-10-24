@@ -35,6 +35,7 @@ class DirectorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {
         Director::create($request->all());
         return redirect()->route('directors.index');
@@ -48,7 +49,7 @@ class DirectorController extends Controller
      */
     public function show(Director $director)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -59,7 +60,7 @@ class DirectorController extends Controller
      */
     public function edit(Director $director)
     {
-        //
+        return view('admin.directors.edit',compact('director'));
     }
 
     /**
@@ -71,7 +72,8 @@ class DirectorController extends Controller
      */
     public function update(Request $request, Director $director)
     {
-        //
+        $director->update($request->all());
+        return redirect()->route('directors .index');
     }
 
     /**
@@ -82,6 +84,8 @@ class DirectorController extends Controller
      */
     public function destroy(Director $director)
     {
-        //
+        //Genre::findOrFail($id)->delete();
+        $director->delete();
+        return redirect()->route('directors.index');
     }
 }
