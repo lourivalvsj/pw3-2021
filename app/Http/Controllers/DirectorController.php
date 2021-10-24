@@ -73,7 +73,7 @@ class DirectorController extends Controller
     public function update(Request $request, Director $director)
     {
         $director->update($request->all());
-        return redirect()->route('directors .index');
+        return redirect()->route('directors.index');
     }
 
     /**
