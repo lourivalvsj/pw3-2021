@@ -9,4 +9,8 @@ class Language extends Model
 {
     use HasFactory;
     protected $fillable = ['description'];
+
+    public function countries(){
+        return $this->hasMany(Country::class);
+    }
 }

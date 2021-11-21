@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect()->route('genres.index');
 });
 
 Route::get('/teste/{nome}', function ($nome){
@@ -34,5 +35,6 @@ Route::prefix('admin')->group(function (){
     Route::resource('genres', \App\Http\Controllers\GenreController::class);
     Route::resource('directors', \App\Http\Controllers\DirectorController::class);
     Route::resource('languages', \App\Http\Controllers\LanguageController::class);
+    Route::resource('countries', \App\Http\Controllers\CountryController::class);
 });
 

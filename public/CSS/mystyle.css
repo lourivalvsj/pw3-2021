@@ -2,6 +2,13 @@
 .main-col{
     width: 70%;
 }
+.col-50{
+    width: 50%;
+}
+
+.col-25{
+    width: 25%;
+}
 
 .form-group{
     padding-bottom: 8px;
