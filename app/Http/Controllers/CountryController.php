@@ -52,7 +52,7 @@ class CountryController extends Controller
      */
     public function show(Country $country)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -63,7 +63,8 @@ class CountryController extends Controller
      */
     public function edit(Country $country)
     {
-        //
+        $languages = Language::all();
+        return view('admin.countries.edit', compact('country','languages'));
     }
 
     /**
@@ -75,7 +76,8 @@ class CountryController extends Controller
      */
     public function update(Request $request, Country $country)
     {
-        //
+        $country->update($request->all());
+        return redirect()->route('countries.index');
     }
 
     /**

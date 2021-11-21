@@ -1,8 +1,8 @@
 @extends('admin.layout')
 
-@section('title', 'Cadastro de Diretor')
+@section('title', 'Alteração de Diretor')
 
-@section('page-title', 'Cadastro de Diretor')
+@section('page-title', 'Alteração de Diretor')
 
 @section('content')
     <form method="post" action="{{route('directors.update',$director)}}">
