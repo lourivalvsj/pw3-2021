@@ -10,6 +10,7 @@ class Language extends Model
     use HasFactory;
     protected $fillable = ['description'];
 
+    //relaciomento tabela  countries
     public function countries(){
         return $this->hasMany(Country::class);
     }

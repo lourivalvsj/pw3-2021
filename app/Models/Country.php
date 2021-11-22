@@ -13,4 +13,8 @@ class Country extends Model
     public function language(){
         return $this->belongsTo(Language::class);
     }
+    //relaciomento tabela movies
+    public function movies(){
+        return $this->hasMany(Movie::class);
+    }
 }

@@ -68,6 +68,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('countries.index')}}">Paises</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('movies.index')}}">Filmes</a>
+                    </li>
                     {{--<li class="nav-item">
                         <a class="nav-link disabled">Disabled</a>
                     </li>--}}
