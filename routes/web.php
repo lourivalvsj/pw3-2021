@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
     //return redirect()->route('genres.index');
-
 });
 
 
@@ -33,13 +32,14 @@ Route::get('/dashboard', function () {
     return "<h1> a soma e: ".$n1+$n2." !</h1>";
 });
 */
-
+/*
 Route::get('layout',function (){
     return view('admin.layout');
 });
-
+*/
 //Route::get('genres', [\App\Http\Controllers\GenreController::class, 'index']);
 Route::prefix('admin')->group(function (){
+
     Route::resource('genres', \App\Http\Controllers\GenreController::class)->middleware('auth');
     Route::resource('directors', \App\Http\Controllers\DirectorController::class)->middleware('auth');;
     Route::resource('languages', \App\Http\Controllers\LanguageController::class)->middleware('auth');;
@@ -47,4 +47,6 @@ Route::prefix('admin')->group(function (){
     Route::resource('movies', \App\Http\Controllers\MovieController::class)->middleware('auth');;
 });
 
+Route::get('login/github', [\App\Http\Controllers\LoginSocialController::class,'redirectToGithub'] )->name('login.github');
+Route::get('login/github/callback', [\App\Http\Controllers\LoginSocialController::class,'handleGithubCallback'] )->name('login.github.callback');
 require __DIR__.'/auth.php';
