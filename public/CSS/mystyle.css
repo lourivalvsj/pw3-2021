@@ -1,7 +1,7 @@
-
 .main-col{
     width: 70%;
 }
+
 .col-50{
     width: 50%;
 }
@@ -12,4 +12,12 @@
 
 .form-group{
     padding-bottom: 8px;
+}
+
+.card-title{
+    font-size: 35px;
+}
+
+.card-text{
+    text-align: justify;
 }

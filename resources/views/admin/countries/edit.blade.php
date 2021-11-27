@@ -1,21 +1,21 @@
 @extends('admin.layout')
 
-@section('title', 'Alteração de Paises')
+@section('title', 'Alteracao de Paises')
 
-@section('page-title', 'Alteração de Paises')
+@section('page-title', 'Alteracao de Paises')
 
 @section('content')
-    <form method="post" action="{{route('countries.update',$country)}}">
+    <form method="post" action="{{route('countries.update', $country)}}">
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="name">name</label>
-            <input type="text" name="name" id="name" class="form-control" value="{{$country->name}}">
+            <label for="name">Nome</label>
+            <input type="text" name="name" id="name" class="form-control" required value="{{$country->name}}">
         </div>
         <div class="form-group">
             <label for="initials">Sigla</label>
             <input type="text" name="initials" id="initials" class="form-control" maxlength="3" required value="{{$country->initials}}">
-        </div>{{$country->language->description}}
+        </div>
         <div class="form-group">
             <label for="language">Idioma</label>
             <select name="language_id" id="language" class="form-control">
@@ -35,4 +35,3 @@
         </div>
     </form>
 @endsection
-

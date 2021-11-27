@@ -45,8 +45,14 @@ Route::prefix('admin')->group(function (){
     Route::resource('languages', \App\Http\Controllers\LanguageController::class)->middleware('auth');;
     Route::resource('countries', \App\Http\Controllers\CountryController::class)->middleware('auth');;
     Route::resource('movies', \App\Http\Controllers\MovieController::class)->middleware('auth');;
-});
 
+});
+// GitHub
 Route::get('login/github', [\App\Http\Controllers\LoginSocialController::class,'redirectToGithub'] )->name('login.github');
 Route::get('login/github/callback', [\App\Http\Controllers\LoginSocialController::class,'handleGithubCallback'] )->name('login.github.callback');
+// Google
+Route::get('login/google', [\App\Http\Controllers\LoginSocialController::class,'redirectToGoogle'] )->name('login.google');
+Route::get('login/google/callback', [\App\Http\Controllers\LoginSocialController::class,'handleGoogle'] )->name('login.google.callback');
+
+
 require __DIR__.'/auth.php';

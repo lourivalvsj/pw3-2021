@@ -5,6 +5,11 @@
 @section('page-title', 'Gerenciamento de Filmes')
 
 @section('content')
+    @if(\Illuminate\Support\Facades\Session::has('message'))
+        <div class="alert alert-success" role="alert">
+            {{\Illuminate\Support\Facades\Session::get('message')}}
+        </div>
+    @endif
     <a href="{{route('movies.create')}}" class="btn btn-success">Novo Filme</a>
     <table class="table table-hover">
         <thead>
@@ -29,11 +34,9 @@
                         @method('DELETE')
                         <button class="btn btn-danger" type="submit">Excluir</button>
                     </form>
-
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
 @endsection
-

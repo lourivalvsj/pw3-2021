@@ -11,7 +11,7 @@
         <tr>
             <th class="col-50">Pais</th>
             <th>Sigla</th>
-            <th>Genero</th>
+            <th>Idioma</th>
             <th>-</th>
         </tr>
         </thead>
