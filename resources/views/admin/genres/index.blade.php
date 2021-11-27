@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('admin.layout')
 
 @section('title', 'Gerenciamento de Generos')
 

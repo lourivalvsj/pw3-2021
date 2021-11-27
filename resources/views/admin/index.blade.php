@@ -1,4 +1,4 @@
-extends('admin.layout')
+@extends('admin.layout')
 @section('title', 'Gerenciamento de Generos')
 
 @section('page-title', 'Gerenciamento de Generos')

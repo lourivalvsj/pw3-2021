@@ -15,14 +15,16 @@ class LoginSocialController extends Controller
 
     public function handleGithubCallback(){
         $user = Socialite::driver('github')->stateless()->user();
-        $this->loginOrRegister($user);
+        if ($this->loginOrRegister($user)){
+            return redirect()->route('dashboard');
+        };
+
     }
 
     private function loginOrRegister($data){
         //dd($data);
-
-        $user = User::where('email','=',$data->email)->first();
-        dd($user);
+        $user =User::where('email', '=',$data->email)->first();
+        //dd($user);
 
         if(!$user){
             //dd($user);
@@ -34,9 +36,9 @@ class LoginSocialController extends Controller
             ]);
         }
 
-        Auth::login($user);
+        Auth::login($user,true);
 
-        return redirect()->route('dashboard');
+        return true;
     }
 
 }
