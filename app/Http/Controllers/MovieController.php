@@ -106,8 +106,49 @@ class MovieController extends Controller
      * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movie $movie)
-    {
+    public function update(Request $request, Movie $movie) {
+
+
+        $nameFile = null;
+        if ($request->hasFile('cover') && $request->file('cover')->isValid()){
+            $name = uniqid(date('HisYmd'));
+            $extesion = $request->cover->extension();
+            $nameFile = "{$name}.{$extesion}";
+            $upload = $request->cover->storeAs('public/movies', $nameFile);
+            if(!$upload){
+                $movie::updated([
+                    'title' => $request->title,
+                    'synopsis' => $request->synopsis,
+                    'year' => $request->year,
+                    'trailer' => $request->trailer,
+                    'time' => $request->time,
+                    'cover' => $nameFile,
+                    'country_id' => $request->country_id,
+                    'genre_id' => $request->genre_id,
+                    'director_id' => $request->director_id
+                ]);
+
+                return redirect()->route('movies.index');
+                  //  ->back()
+                  //  ->with('error','Falha ao fazer upload')
+                  //  ->withInput();
+            }else{
+                Movie::create([
+                    'title' => $request->title,
+                    'synopsis' => $request->synopsis,
+                    'year' => $request->year,
+                    'trailer' => $request->trailer,
+                    'time' => $request->time,
+                    'cover' => $nameFile,
+                    'country_id' => $request->country_id,
+                    'genre_id' => $request->genre_id,
+                    'director_id' => $request->director_id
+                ]);
+                return redirect()->route('movies.index');
+            }
+
+        }
+
         //se for enviado algum arquivo de capa pelo formulario entao deve-se excluir o arquivo no servidor, fazer o upload do novo arquivo e atualizar os dados no banco
         //caso nao seja enviado um novo arquivo de capa somente atualize os dados do banco.
     }

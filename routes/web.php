@@ -52,7 +52,7 @@ Route::get('login/github', [\App\Http\Controllers\LoginSocialController::class,'
 Route::get('login/github/callback', [\App\Http\Controllers\LoginSocialController::class,'handleGithubCallback'] )->name('login.github.callback');
 // Google
 Route::get('login/google', [\App\Http\Controllers\LoginSocialController::class,'redirectToGoogle'] )->name('login.google');
-Route::get('login/google/callback', [\App\Http\Controllers\LoginSocialController::class,'handleGoogle'] )->name('login.google.callback');
+Route::get('login/google/callback', [\App\Http\Controllers\LoginSocialController::class,'handleGoogleCallback'] )->name('login.google.callback');
 
 
 require __DIR__.'/auth.php';

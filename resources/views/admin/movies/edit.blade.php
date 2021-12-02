@@ -5,6 +5,7 @@
 @section('page-title', 'Alteracao de Filmes')
 
 @section('content')
+
     <form method="post" action="{{route('movies.update', $movie)}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -15,6 +16,10 @@
         <div class="form-group">
             <label for="cover">Capa</label>
             <input type="file" name="cover" id="cover" class="form-control" required>
+            <input type="text" name="cover" id="cover" class="form-control" value="{{$movie->cover}}"required>
+        <!--<img src="{{asset('uploads/'.$movie->cover)}}" alt="">
+            <img src="{{asset('uploads/app/public')}}" alt="">
+            -->
         </div>
         <div class="form-group">
             <label for="trailer">Trailer</label>
