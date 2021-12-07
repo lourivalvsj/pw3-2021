@@ -11,10 +11,10 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <p> <a href="{{ route('login.social','github') }}" class="btn btn-dark w-full">Login com Github</a></p>
+        <p> <a href="{{ route('login.social','google') }}" class="btn btn-danger w-full">Login com Google</a></p>
+        <p> <a href="{{ route('login.social','facebook') }}" class="btn btn-primary w-full">Login com Facebook</a></p>
 
-        <p> <a href="{{ route('login.github') }}" class="btn btn-dark w-full">Login com Github</a></p>
-        <p> <a href="{{ route('login.google') }}" class="btn btn-danger w-full">Login com Google</a></p>
-        <p> <a href="{{ route('login.facebook') }}" class="btn btn-primary w-full">Login com Facebook</a></p>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf

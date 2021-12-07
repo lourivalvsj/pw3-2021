@@ -9,6 +9,20 @@ use Laravel\Socialite\Facades\Socialite;
 
 class LoginSocialController extends Controller
 {
+    public function redirectToProvider($provider){
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function handleProviderCallback($provider){
+        $user = Socialite::driver($provider)->stateless()->user();
+        //dd($user);
+        if ($this->loginOrRegister($user)){
+            return redirect()->route('dashboard');
+        };
+
+    }
+
+ /*
     public function redirectToGoogle(){
         return Socialite::driver('google')->redirect();
     }
@@ -46,7 +60,7 @@ class LoginSocialController extends Controller
         };
 
     }
-
+*/
 
     private function loginOrRegister($data){
         //dd($data);
