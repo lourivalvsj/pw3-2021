@@ -34,6 +34,20 @@ class LoginSocialController extends Controller
 
     }
 
+    public function redirectToFacebook(){
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookCallback(){
+        $user = Socialite::driver('facebook')->stateless()->user();
+        //dd($user);
+        if ($this->loginOrRegister($user)){
+            return redirect()->route('dashboard');
+        };
+
+    }
+
+
     private function loginOrRegister($data){
         //dd($data);
         $user =User::where('email', '=',$data->email)->first();

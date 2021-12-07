@@ -54,5 +54,7 @@ Route::get('login/github/callback', [\App\Http\Controllers\LoginSocialController
 Route::get('login/google', [\App\Http\Controllers\LoginSocialController::class,'redirectToGoogle'] )->name('login.google');
 Route::get('login/google/callback', [\App\Http\Controllers\LoginSocialController::class,'handleGoogleCallback'] )->name('login.google.callback');
 
+Route::get('login/facebook', [\App\Http\Controllers\LoginSocialController::class,'redirectToFacebook'] )->name('login.facebook');
+Route::get('login/facebook/callback', [\App\Http\Controllers\LoginSocialController::class,'handleFacebookCallback'] )->name('login.facebook.callback');
 
 require __DIR__.'/auth.php';
